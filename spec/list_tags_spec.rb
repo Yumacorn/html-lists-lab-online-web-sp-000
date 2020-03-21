@@ -16,6 +16,7 @@ RSpec.describe 'index.html' do
 
   it 'contains a nested <ul> tag' do
     ul = parsed_html.search('ul').first
+    #3 li are children
     children = ul.children.select {|child| child.name == "li"}
     subchildren = children.select {|child| child.children.length > 0}
     nested_ul = subchildren.any? {|sc| sc.children.any? {|ch| ch.name == "ul"}}
